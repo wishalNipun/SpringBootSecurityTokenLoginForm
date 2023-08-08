@@ -1,4 +1,4 @@
-package com.wishal.SpringSecurityTokenLoginForm.entity;
+package com.wishal.SpringSecurityTokenLoginForm.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,27 +33,32 @@ public class User implements UserDetails {
     }
 
     @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
